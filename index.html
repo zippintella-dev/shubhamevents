@@ -213,7 +213,7 @@
         }
 
         .container {
-            width: min(1180px, calc(100% - 32px));
+            width: min(1180px, calc(100% - 32px)) !important;
             margin: 0 auto;
         }
 
@@ -1179,6 +1179,7 @@
             :root {
                 --section-pad: 4.25rem;
                 --anchor-offset: 12px;
+                --mobile-gutter: clamp(1.4rem, 5.8vw, 2rem);
             }
 
             body {
@@ -1210,7 +1211,8 @@
             }
 
             .container {
-                width: min(100% - 48px, 1180px);
+                width: calc(100% - (var(--mobile-gutter) * 2)) !important;
+                max-width: 1180px !important;
             }
 
             .site-nav > div:first-child {
@@ -1253,6 +1255,7 @@
 
             .hero .max-w-4xl {
                 max-width: 100%;
+                padding-inline: 0.35rem;
             }
 
             .hero-title {
@@ -1276,14 +1279,52 @@
             }
 
             .hero .btn {
-                width: 100%;
+                width: calc(100% - 18px) !important;
+                margin-inline: auto;
                 min-height: 44px;
                 padding-block: 0.75rem;
                 font-size: 0.66rem;
             }
 
+            main section > .container {
+                padding-inline: 0.35rem;
+            }
+
+            main section > .container > .grid,
+            main section > .container > .flex,
+            #showcaseGrid,
+            #storyTrack,
+            #consultationForm,
+            #contact .container > .grid {
+                max-width: 100%;
+            }
+
+            .section-kicker,
+            .section-title,
+            .section-copy,
+            .hero-title,
+            .hero p,
+            .service-card,
+            .showcase-card,
+            .story-card,
+            .quote-card,
+            .faq-item,
+            #consultationForm {
+                min-width: 0;
+            }
+
             .service-card {
                 padding: 2rem 1.35rem 1.45rem;
+            }
+
+            .service-card h3,
+            .showcase-card span,
+            .story-card blockquote,
+            .quote-card p,
+            .faq-toggle span:first-child,
+            label span {
+                max-width: 100%;
+                overflow-wrap: anywhere;
             }
 
             #services .mt-14,
@@ -1299,6 +1340,15 @@
             .showcase-card {
                 min-height: 292px;
                 aspect-ratio: 1 / 1.08;
+            }
+
+            .service-card,
+            .showcase-card,
+            .story-card,
+            .quote-card,
+            .faq-item,
+            #consultationForm {
+                max-width: 100%;
             }
 
             .showcase-card .absolute.bottom-0 {
@@ -1425,10 +1475,16 @@
         @media (max-width: 420px) {
             :root {
                 --section-pad: 3.65rem;
+                --mobile-gutter: clamp(1.5rem, 6.2vw, 1.95rem);
             }
 
             .container {
-                width: min(100% - 44px, 1180px);
+                width: calc(100% - (var(--mobile-gutter) * 2)) !important;
+                max-width: 1180px !important;
+            }
+
+            main section > .container {
+                padding-inline: 0.25rem;
             }
 
             .site-nav > div:first-child {
@@ -1485,8 +1541,30 @@
                 line-height: 1.25;
             }
 
+            .hero .btn,
+            #mobileMenu .btn,
+            #consultationForm .btn,
+            .drawer-panel .btn {
+                width: calc(100% - 18px) !important;
+                margin-inline: auto;
+            }
+
             .service-card {
-                padding-inline: 1.15rem;
+                padding: 1.65rem 1.25rem 1.25rem !important;
+            }
+
+            .story-card,
+            .quote-card,
+            #consultationForm {
+                padding-inline: 1.2rem !important;
+            }
+
+            .showcase-card .absolute.bottom-0 {
+                padding: 1.1rem !important;
+            }
+
+            .faq-toggle {
+                padding-inline: 1rem !important;
             }
 
             .service-card h3,
