@@ -135,6 +135,20 @@
             min-width: 0;
         }
 
+        #consultationForm label,
+        #enquiryForm label {
+            width: 100%;
+        }
+
+        #consultationForm input,
+        #consultationForm select,
+        #consultationForm textarea,
+        #enquiryForm input,
+        #enquiryForm select,
+        #enquiryForm textarea {
+            display: block;
+        }
+
         .site-loader {
             position: fixed;
             inset: 0;
@@ -1147,20 +1161,6 @@
             display: flex;
             align-items: center;
             padding-block: calc(var(--section-pad) + 0.5rem) clamp(2.5rem, 4vw, 3.75rem);
-        }
-
-        #consultationForm .grid {
-            grid-template-columns: repeat(var(--form-cols, 1), minmax(0, 1fr));
-        }
-
-        @media (min-width: 768px) {
-            #consultationForm .md\:grid-cols-2 {
-                --form-cols: 2;
-            }
-
-            #consultationForm .md\:grid-cols-3 {
-                --form-cols: 3;
-            }
         }
 
         @media (max-width: 1080px) and (min-width: 841px) {
